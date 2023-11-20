@@ -1,0 +1,57 @@
+*{
+    font-family: sans-serif;
+}
+.top{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20%;
+}
+.m{
+    margin: 0 14px;
+}
+.s{
+    margin-left: 4px;
+}
+input{
+    border: 2px solid black;
+    padding: 7px 1px;
+    margin-left: 50px;
+}
+select{
+    border: 2px solid black;
+    padding: 7px 15px;
+    margin-left: 93px;
+}
+hr{
+    border: 2px solid black;
+}
+.btn{
+    font-size: small;
+    color: black;
+    background-color: rgb(136, 236, 118);
+    padding: 10px 30px;
+    border: 3px solid black;
+    box-shadow: 3px 3px black;
+}
+#bt1{
+    margin-left: 100px;
+    margin-bottom: 20px;
+}
+#bt2{
+    margin-left: 135px;
+}
+#bt3{
+    padding: 5px 15px;
+    position: relative;
+    left: 210px;
+    bottom: 25px;
+}
+span{
+    font-size: larger;
+    font-weight: 600;
+}
+.bot{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

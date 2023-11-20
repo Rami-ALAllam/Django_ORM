@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styling.css' %}">
+</head>
+
+<body>
+    <div class="top">
+        <div class="dojo">
+            <h1>Add a Dojo</h1>
+            <form action="/result" method="post">
+                {%csrf_token%}
+                <p>Name:
+                    <input type="text" name="name">
+                </p>
+                <p class="m">City:
+                    <input type="text" name="city">
+                </p>
+                <p class="s">State:
+                    <input type="text" name="state">
+                </p>
+                <button type="submit" class="btn" id="bt1">Add</button>
+            </form>
+        </div>
+        <div class="student">
+            <h1>Add a Ninja</h1>
+            <form action="/result2" method="post">
+                {%csrf_token%}
+                <p>First name:
+                    <input type="text" name="fname">
+                </p>
+                <p>Last name:
+                    <input type="text" name="lname">
+                </p>
+                <p>Dojo:
+                    <select name="dojo" id="dojo">
+                        {% for dojo in dojos %}
+                        <option value="{{dojo.id}}">{{dojo.name}}</option>
+                        {%endfor%}
+                    </select>
+                </p>
+                <button type="submit" class="btn" id="bt2">Add</button>
+            </form>
+        </div>
+    </div>
+    <hr>
+    <div class="bot">
+        <h1>All the Dojos</h1>
+        <ul>
+            {% for dojo in dojos %}
+            <li><span>{{dojo.name}}</span>
+                <form action="/result3" method="post">
+                    {%csrf_token%}
+                    <input type="hidden" value="{{dojo.id}}" name="dojodel">
+                    <button type="submit" class="btn" id="bt3">Delete</button>
+                </form>
+                <ul>
+                    <!-- looping through each Dojo's ninjas! -->
+                    {% for ninja in dojo.ninjas.all %}
+                    <li><em>{{ninja.first_name}} {{ninja.last_name}}</em></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+</html>
