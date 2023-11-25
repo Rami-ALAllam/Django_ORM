@@ -1,0 +1,23 @@
+*{
+    font-family: sans-serif;
+}
+.container{
+    padding-left: 3%;
+    padding-top: 1%;
+}
+.right{
+    margin-top: 100%;
+    position: relative;
+    left: 80%;
+    top: 50px;
+    font-size: larger;
+}
+p,a{
+    font-size: large;
+}
+.mid{
+    margin-bottom: 100px;
+}
+.title{
+    margin-bottom: 50px;
+}

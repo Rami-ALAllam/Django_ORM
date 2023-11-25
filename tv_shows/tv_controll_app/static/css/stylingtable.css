@@ -1,0 +1,25 @@
+*{
+    font-family: sans-serif;
+}
+table, td, th {
+    border: 1px solid black;
+    }
+    table {
+        border-collapse: collapse;
+        width: 95%;
+        font-size: large;
+        margin-bottom: 40px;
+    }
+    th{
+        height: 50px;
+    }
+    tr:nth-child(even) {background-color: #f2f2f2;}
+    tr:hover {background-color: lightblue;}
+    .container{
+        padding-left: 3%;
+        padding-top: 2%;
+    }
+    .cell{
+        margin-right: 20%;
+        margin-left: 3%;
+    }

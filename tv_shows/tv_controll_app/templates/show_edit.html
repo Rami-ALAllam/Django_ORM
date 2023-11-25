@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/stylingform.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <a href="/shows" class="right">Go Back</a>
+        <h1>Edit Show {{editshow.id}}</h1>
+        <form method="post" action="/shows/update">
+            {%csrf_token%}
+            <input type="hidden" name="editshow_id" value="{{editshow.id}}">
+            <p>Title:<br>
+                <input type="text" name="title" value="{{editshow.title}}" class="title">
+            </p>
+            <div class="mid">
+                <p>Network:<br>
+                    <input type="text" name="network" value="{{editshow.network}}">
+                </p>
+                <p>Release Date:<br>
+                    <input type="date" name="release_date" value="{{editshow.release_date}}">
+                </p>
+            </div>
+            <p>Description:<br>
+                <textarea name="desc" rows="4" cols="50" value="{{editshow.desc}}"></textarea>
+            </p>
+            <button type="submit" class="btn">Update</button>
+        </form>
+        <a href="/shows/{{editshow.id}}" class="cell">Go to show</a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/stylingshow.css' %}">
+</head>
+
+<body>
+    <a href="/shows" class="right">Go Back</a>
+    <div class="container">
+        <h1 class="title">TV Show {{oneshow.id}}</h1>
+        <p>Title: {{oneshow.title}}</p>
+        <p>Network: {{oneshow.network}}</p>
+        <p>Release Date: {{oneshow.release_date}}</p>
+        <p class="mid">Description: {{oneshow.desc}}</p>
+        <p>Last updated: {{oneshow.updated_at}}</p>
+        <a href="/shows/{{oneshow.id}}/edit">Edit</a> |
+        <a href="/shows/{{oneshow.id}}/destroy">Delete</a> 
+    </div>
+</body>
+
+</html>

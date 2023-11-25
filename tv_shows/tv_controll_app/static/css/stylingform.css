@@ -1,0 +1,45 @@
+*{
+    font-family: sans-serif;
+}
+.container{
+    width: fit-content;
+    margin: 0 auto ;
+}
+.right{
+    margin-top: 100%;
+    position: relative;
+    left: 180%;
+    top: 50px;
+    font-size: larger;
+}
+.mid{
+    display: flex;
+    justify-content: space-between;
+}
+input{
+    border: 2px solid black;
+    padding-bottom: 10px;
+}
+.title{
+    padding-left: 190px;
+    padding-bottom: 10px;
+}
+textarea{
+    border: 2px solid black;
+}
+.btn{
+    font-size: small;
+    color: black;
+    background-color: rgb(136, 236, 118);
+    padding: 10px 30px;
+    border: 3px solid black;
+    box-shadow: 3px 3px black;
+    margin-left: 120px;
+    margin-top: 20px;
+}
+.cell{
+    position: relative;
+    left: 130px;
+    top: 30px;
+    font-size: larger;
+}
