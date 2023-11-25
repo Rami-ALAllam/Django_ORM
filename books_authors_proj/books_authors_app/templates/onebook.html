@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/styling2.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>{{onebook.title}}</h1>
+        <h2>ID:{{onebook.id}}</h2>
+        <h3>Description:{{onebook.desc}}</h3>
+        <h3>Authors:</h3>
+        <ul>
+            {%for author in onebook.authors.all%}
+            <li>{{author.first_name}} {{author.last_name}}</li>
+            {%endfor%}
+        </ul>
+        <form method="post" action="/authoradd">
+            {%csrf_token%}
+            <input type="hidden" value="{{onebook.id}}" name="bk">
+            <select name="author1">
+                {%for authorr in allauthors%}
+                {%if authorr not in onebook.authors.all%}
+                <option value="{{authorr.id}}">{{authorr.first_name}} {{authorr.last_name}}</option>
+                {%endif%}
+                {%endfor%}
+            </select>
+            <button type="submit" class="btn">Add</button>
+        </form>
+        <form action="/return">
+            {%csrf_token%}
+            <button type="submit" class="btn">Return</button>
+        </form>
+    </div>
+</body>
+
+</html>

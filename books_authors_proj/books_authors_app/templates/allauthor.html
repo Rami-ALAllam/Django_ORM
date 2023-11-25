@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/styling1.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <h1 class="title">Add an Author</h1>
+            <form method="post" action="/create_author">
+                {%csrf_token%}
+                <p>First name:
+                    <input type="text" name="fname" class="border">
+                </p>
+                <p>Last name:
+                    <input type="text" name="lname" class="border"></input>
+                </p>
+                <p>Notes:
+                    <textarea name="notes" rows="4" cols="50" class="border2"></textarea>
+                </p>
+                <button type="submit" class="btn">Add</button>
+            </form>
+            <form action="/move1">
+                <h1>Move to Books</h1>
+                <button type="submit" class="btn">Move</button>
+            </form>
+        </div>
+        <div class="right">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+                {% for author in authors %}
+                <tr>
+                    <td>{{author.id}}</td>
+                    <td>{{author.first_name}} {{author.last_name}}</td>
+                    <td><a href="author/{{author.id}}">View</a></td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
