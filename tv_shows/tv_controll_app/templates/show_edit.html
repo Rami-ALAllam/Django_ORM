@@ -13,6 +13,13 @@
     <div class="container">
         <a href="/shows" class="right">Go Back</a>
         <h1>Edit Show {{editshow.id}}</h1>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
         <form method="post" action="/shows/update">
             {%csrf_token%}
             <input type="hidden" name="editshow_id" value="{{editshow.id}}">
@@ -24,11 +31,15 @@
                     <input type="text" name="network" value="{{editshow.network}}">
                 </p>
                 <p>Release Date:<br>
-                    <input type="date" name="release_date" value="{{editshow.release_date}}">
+                    <!-- ******VERY IMPORTANT****** -->
+                    <!-- in the value put the form of the date without % in order to be visible (|date:'Y-m-d') -->
+                    <input type="date" name="release_date" value="{{editshow.release_date|date:'Y-m-d'}}">
                 </p>
             </div>
             <p>Description:<br>
-                <textarea name="desc" rows="4" cols="50" value="{{editshow.desc}}"></textarea>
+                <!-- ******VERY IMPORTANT****** -->
+                <!-- for the text area information to be visible, put the info in the text not in a value like the input -->
+                <textarea name="desc" rows="4" cols="50">{{editshow.desc}}</textarea>
             </p>
             <button type="submit" class="btn">Update</button>
         </form>
