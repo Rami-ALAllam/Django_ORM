@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Amadon</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/stylingcheckout.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h3>Thank you for your business!</h3><br>
+
+        <p>Last order quantity {{order.quantity_ordered}} item(s)</p>
+        <p>Last order total price {{order.total_price}} $</p><br>
+
+        <p>Total quantity for all orders {{allorders.0}} item(s)</p>
+        <p>Total amount for all orders {{allorders.1}} $</p><br>
+
+        <p>We charged your credit card for {{allorders.1}} $</p>
+        <p>You have ordered {{allorders.0}} item(s) so far and spent {{allorders.1}} $ with Amadon.com!</p><br>
+        <a href="/">Go Back</a>
+    </div>
+</body>
+
+</html>
